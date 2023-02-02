@@ -113,9 +113,10 @@
                     BaseResourceKey="BaseButtonStyle"
                     Class="ElevatedButton"
                     TargetType="Button">
-                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource OnPrimary}, Dark={StaticResource OnPrimaryDark}}" />
+                    <Setter Property="BackgroundColor" Value="Transparent" />
+                    <Setter Property="Background" Value="{StaticResource PrimaryGradientBrush}" />
                     <Setter Property="Shadow" Value="{StaticResource ShadowElevation1}" />
-                    <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
+                    <Setter Property="TextColor" Value="{AppThemeBinding Light=White, Dark={StaticResource PrimaryDark}}" />
                     <Setter Property="VisualStateManager.VisualStateGroups">
                         <VisualStateGroupList>
                             <VisualStateGroup x:Name="CommonStates">

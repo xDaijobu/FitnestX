@@ -32,16 +32,13 @@
                 TextColor="{StaticResource Gray}" />
         </VerticalStackLayout>
 
-        <material:ButtonView
+        <Button
+            Command="{Binding GoToOnBoardingViewCommand}"
+            FontAttributes="Bold"
+            FontSize="18"
             HeightRequest="50"
-            TappedCommand="{Binding GoToOnBoardingViewCommand}"
-            VerticalOptions="End">
-            <Label
-                FontAttributes="Bold"
-                FontSize="18"
-                HorizontalTextAlignment="Center"
-                Text="Get Started"
-                VerticalTextAlignment="Center" />
-        </material:ButtonView>
+            StyleClass="ElevatedButton"
+            Text="Get Started"
+            VerticalOptions="End" />
     </Grid>
 </ContentPage>

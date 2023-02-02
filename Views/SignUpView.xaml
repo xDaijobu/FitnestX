@@ -85,17 +85,13 @@
             Margin="0,25"
             Spacing="15"
             VerticalOptions="End">
-            <controls1:ButtonView
+            <Button
+                FontAttributes="Bold"
+                FontSize="18"
                 HeightRequest="50"
-                TappedCommand="{Binding GoToOnBoardingViewCommand}"
-                VerticalOptions="End">
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HorizontalTextAlignment="Center"
-                    Text="Register"
-                    VerticalTextAlignment="Center" />
-            </controls1:ButtonView>
+                StyleClass="ElevatedButton"
+                Text="Register"
+                VerticalOptions="End" />
 
             <Grid ColumnDefinitions="*, Auto, *" ColumnSpacing="10">
                 <BoxView
