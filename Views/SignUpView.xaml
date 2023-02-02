@@ -12,7 +12,7 @@
     xmlns:viewModels="using:FitnestX.ViewModels"
     Title="SignUpView">
     <ContentPage.BindingContext>
-        <viewModels:OnBoardingViewModel />
+        <viewModels:SignUpViewModel />
     </ContentPage.BindingContext>
     <Grid Margin="25" RowDefinitions="Auto, *">
         <VerticalStackLayout Grid.Row="0" Spacing="10">
@@ -30,11 +30,10 @@
                 Text="Create An Account"
                 TextColor="Black" />
 
-
             <Grid
                 Margin="0,35,0,0"
                 ColumnDefinitions="*"
-                RowDefinitions="Auto, Auto, Auto, Auto,Auto"
+                RowDefinitions="Auto, Auto, Auto, Auto, Auto"
                 RowSpacing="15">
                 <controls1:TextField
                     Title="First Name"
@@ -58,7 +57,26 @@
                                            Glyph={x:Static m:MaterialRegular.Lock}}"
                     IsPassword="True" />
 
-                <controls1:CheckBox Grid.Row="4" Text="By continuing you accept our Privacy Policy and Term of Use" />
+                <Grid
+                    Grid.Row="4"
+                    ColumnDefinitions="Auto, *"
+                    ColumnSpacing="10"
+                    RowDefinitions="Auto">
+                    <controls1:CheckBox
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        IsChecked="{Binding IsTermsChecked}" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        MaxLines="3"
+                        Text="By continuing you accept our Privacy Policy  and Term of Use"
+                        VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TermsClickedCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
             </Grid>
 
         </VerticalStackLayout>
