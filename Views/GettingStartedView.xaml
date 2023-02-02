@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitnestX.Views.GettingStartedView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:UraniumUI.Material.Controls;assembly=UraniumUI.Material"
+    xmlns:viewModels="clr-namespace:FitnestX.ViewModels"
+    Title="GettingStartedView">
+    <ContentPage.BindingContext>
+        <viewModels:GettingStartedViewModel />
+    </ContentPage.BindingContext>
+    <Grid Padding="30" Background="White">
+        <VerticalStackLayout VerticalOptions="Center">
+            <Label FontAttributes="Bold" HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontSize="36"
+                            Text="Fitnest"
+                            TextColor="Black" />
+                        <Span
+                            FontSize="48"
+                            Text="X"
+                            TextColor="{StaticResource OnPrimary}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                Text="Everybody Can Train"
+                TextColor="{StaticResource Gray}" />
+        </VerticalStackLayout>
+
+        <material:ButtonView
+            HeightRequest="50"
+            TappedCommand="{Binding GoToOnBoardingViewCommand}"
+            VerticalOptions="End">
+            <Label
+                FontAttributes="Bold"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                Text="Get Started"
+                VerticalTextAlignment="Center" />
+        </material:ButtonView>
+    </Grid>
+</ContentPage>

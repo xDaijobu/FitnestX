@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FitnestX.Views.SignUpView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:attachment="clr-namespace:UraniumUI.Material.Attachments;assembly=UraniumUI.Material"
+    xmlns:controls1="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
+    xmlns:local="clr-namespace:FitnestX.Views"
+    xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
+    xmlns:uranium="clr-namespace:UraniumUI.Pages;assembly=UraniumUI"
+    xmlns:viewModels="using:FitnestX.ViewModels"
+    Title="SignUpView">
+    <ContentPage.BindingContext>
+        <viewModels:OnBoardingViewModel />
+    </ContentPage.BindingContext>
+    <Grid Margin="25" RowDefinitions="Auto, *">
+        <VerticalStackLayout Grid.Row="0" Spacing="10">
+            <Label
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Hey there, "
+                TextColor="Black"
+                VerticalOptions="Center" />
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="Create An Account"
+                TextColor="Black" />
+
+
+            <Grid
+                Margin="0,35,0,0"
+                ColumnDefinitions="*"
+                RowDefinitions="Auto, Auto, Auto, Auto,Auto"
+                RowSpacing="15">
+                <controls1:TextField
+                    Title="First Name"
+                    Grid.Row="0"
+                    Icon="{FontImageSource FontFamily=MaterialRegular,
+                                           Glyph={x:Static m:MaterialRegular.Person}}" />
+                <controls1:TextField
+                    Title="Last Name"
+                    Grid.Row="1"
+                    Icon="{FontImageSource FontFamily=MaterialRegular,
+                                           Glyph={x:Static m:MaterialRegular.Person}}" />
+                <controls1:TextField
+                    Title="Email"
+                    Grid.Row="2"
+                    Icon="{FontImageSource FontFamily=MaterialRegular,
+                                           Glyph={x:Static m:MaterialRegular.Email}}" />
+                <controls1:TextField
+                    Title="Password"
+                    Grid.Row="3"
+                    Icon="{FontImageSource FontFamily=MaterialRegular,
+                                           Glyph={x:Static m:MaterialRegular.Lock}}"
+                    IsPassword="True" />
+
+                <controls1:CheckBox Grid.Row="4" Text="By continuing you accept our Privacy Policy and Term of Use" />
+            </Grid>
+
+        </VerticalStackLayout>
+        <VerticalStackLayout
+            Grid.Row="1"
+            Margin="0,25"
+            Spacing="15"
+            VerticalOptions="End">
+            <controls1:ButtonView
+                HeightRequest="50"
+                TappedCommand="{Binding GoToOnBoardingViewCommand}"
+                VerticalOptions="End">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    Text="Register"
+                    VerticalTextAlignment="Center" />
+            </controls1:ButtonView>
+
+            <Grid ColumnDefinitions="*, Auto, *" ColumnSpacing="10">
+                <BoxView
+                    Grid.Column="0"
+                    HeightRequest="1"
+                    Color="{StaticResource OnBackground}" />
+                <Label
+                    Grid.Column="1"
+                    Text="Or"
+                    TextColor="Black" />
+                <BoxView
+                    Grid.Column="2"
+                    HeightRequest="1"
+                    Color="{StaticResource OnBackground}" />
+            </Grid>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="35">
+                <Border
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness="1">
+                    <Image
+                        Margin="15"
+                        Aspect="AspectFill"
+                        HeightRequest="25"
+                        Source="google_logo.png"
+                        WidthRequest="25" />
+                </Border>
+                <Border
+                    HorizontalOptions="Center"
+                    StrokeShape="RoundRectangle 15,15,15,15"
+                    StrokeThickness="1">
+                    <Image
+                        Margin="15"
+                        Aspect="AspectFill"
+                        HeightRequest="25"
+                        Source="facebook_logo.png"
+                        WidthRequest="25" />
+                </Border>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="3">
+                <Label FontSize="14" Text="Already have an account?" />
+                <Label FontSize="14" Text="Login" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
