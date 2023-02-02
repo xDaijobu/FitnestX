@@ -8,135 +8,206 @@
     xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
     xmlns:local="clr-namespace:FitnestX.Views"
     xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:uranium="clr-namespace:UraniumUI.Pages;assembly=UraniumUI"
     xmlns:viewModels="using:FitnestX.ViewModels"
     Title="SignUpView">
     <ContentPage.BindingContext>
         <viewModels:SignUpViewModel />
     </ContentPage.BindingContext>
-    <Grid Margin="25" RowDefinitions="Auto, *">
-        <VerticalStackLayout Grid.Row="0" Spacing="10">
-            <Label
-                FontSize="20"
-                HorizontalOptions="Center"
-                Text="Hey there, "
-                TextColor="Black"
-                VerticalOptions="Center" />
-
-            <Label
-                FontAttributes="Bold"
-                FontSize="24"
-                HorizontalOptions="Center"
-                Text="Create An Account"
-                TextColor="Black" />
-
+    <VerticalStackLayout toolkit:StateContainer.CanStateChange="{Binding CanStateChange}" toolkit:StateContainer.CurrentState="{Binding CurrentState}">
+        <toolkit:StateContainer.StateViews>
+            <!--  SignUpStepOne  -->
             <Grid
-                Margin="0,35,0,0"
-                ColumnDefinitions="*"
-                RowDefinitions="Auto, Auto, Auto, Auto, Auto"
-                RowSpacing="15">
-                <controls1:TextField
-                    Title="First Name"
-                    Grid.Row="0"
-                    Icon="{FontImageSource FontFamily=MaterialRegular,
-                                           Glyph={x:Static m:MaterialRegular.Person}}" />
-                <controls1:TextField
-                    Title="Last Name"
+                Margin="25"
+                toolkit:StateView.StateKey="SignUpStepOne"
+                RowDefinitions="Auto, *">
+                <VerticalStackLayout Grid.Row="0" Spacing="10">
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="Hey there, "
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalOptions="Center"
+                        Text="Create An Account"
+                        TextColor="Black" />
+
+                    <Grid
+                        Margin="0,35,0,0"
+                        ColumnDefinitions="*"
+                        RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+                        RowSpacing="15">
+                        <controls1:TextField
+                            Title="First Name"
+                            Grid.Row="0"
+                            Icon="{FontImageSource FontFamily=MaterialRegular,
+                                                   Glyph={x:Static m:MaterialRegular.Person}}" />
+                        <controls1:TextField
+                            Title="Last Name"
+                            Grid.Row="1"
+                            Icon="{FontImageSource FontFamily=MaterialRegular,
+                                                   Glyph={x:Static m:MaterialRegular.Person}}" />
+                        <controls1:TextField
+                            Title="Email"
+                            Grid.Row="2"
+                            Icon="{FontImageSource FontFamily=MaterialRegular,
+                                                   Glyph={x:Static m:MaterialRegular.Email}}" />
+                        <controls1:TextField
+                            Title="Password"
+                            Grid.Row="3"
+                            Icon="{FontImageSource FontFamily=MaterialRegular,
+                                                   Glyph={x:Static m:MaterialRegular.Lock}}"
+                            IsPassword="True" />
+
+                        <Grid
+                            Grid.Row="4"
+                            ColumnDefinitions="Auto, *"
+                            ColumnSpacing="10"
+                            RowDefinitions="Auto">
+                            <controls1:CheckBox
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                IsChecked="{Binding IsTermsChecked}" />
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                MaxLines="3"
+                                Text="By continuing you accept our Privacy Policy  and Term of Use"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TermsClickedCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </Grid>
+
+                </VerticalStackLayout>
+                <VerticalStackLayout
                     Grid.Row="1"
-                    Icon="{FontImageSource FontFamily=MaterialRegular,
-                                           Glyph={x:Static m:MaterialRegular.Person}}" />
+                    Margin="0,25"
+                    Spacing="15"
+                    VerticalOptions="End">
+                    <Button
+                        Command="{Binding ChangeStateCommand}"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HeightRequest="50"
+                        StyleClass="ElevatedButton"
+                        Text="Register"
+                        VerticalOptions="End" />
+
+                    <Grid ColumnDefinitions="*, Auto, *" ColumnSpacing="10">
+                        <BoxView
+                            Grid.Column="0"
+                            HeightRequest="1"
+                            Color="{StaticResource OnBackground}" />
+                        <Label
+                            Grid.Column="1"
+                            Text="Or"
+                            TextColor="Black" />
+                        <BoxView
+                            Grid.Column="2"
+                            HeightRequest="1"
+                            Color="{StaticResource OnBackground}" />
+                    </Grid>
+
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="35">
+                        <Border
+                            HorizontalOptions="Center"
+                            StrokeShape="RoundRectangle 15,15,15,15"
+                            StrokeThickness="1">
+                            <Image
+                                Margin="15"
+                                Aspect="AspectFill"
+                                HeightRequest="25"
+                                Source="google_logo.png"
+                                WidthRequest="25" />
+                        </Border>
+                        <Border
+                            HorizontalOptions="Center"
+                            StrokeShape="RoundRectangle 15,15,15,15"
+                            StrokeThickness="1">
+                            <Image
+                                Margin="15"
+                                Aspect="AspectFill"
+                                HeightRequest="25"
+                                Source="facebook_logo.png"
+                                WidthRequest="25" />
+                        </Border>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="3">
+                        <Label FontSize="14" Text="Already have an account?" />
+                        <Label FontSize="14" Text="Login" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!--  SignUpStepTwo  -->
+            <Grid
+                Margin="25"
+                toolkit:StateView.StateKey="SignUpStepTwo"
+                RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+                RowSpacing="10">
+                <Image
+                    Grid.Row="0"
+                    Aspect="AspectFit"
+                    Source="girl_one.png"
+                    VerticalOptions="Start" />
+
+                <VerticalStackLayout Grid.Row="1">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalOptions="Center"
+                        Text="Let’s complete your profile"
+                        TextColor="Black" />
+                    <Label
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        Text="It will help us to know more about you!"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                </VerticalStackLayout>
+
                 <controls1:TextField
-                    Title="Email"
+                    Title="Choose Gender"
                     Grid.Row="2"
                     Icon="{FontImageSource FontFamily=MaterialRegular,
-                                           Glyph={x:Static m:MaterialRegular.Email}}" />
+                                           Glyph={x:Static m:MaterialRegular.Person}}" />
                 <controls1:TextField
-                    Title="Password"
+                    Title="Date of birth"
                     Grid.Row="3"
                     Icon="{FontImageSource FontFamily=MaterialRegular,
-                                           Glyph={x:Static m:MaterialRegular.Lock}}"
-                    IsPassword="True" />
+                                           Glyph={x:Static m:MaterialRegular.Date_range}}" />
 
-                <Grid
+                <controls1:TextField
+                    Title="Your Weight"
                     Grid.Row="4"
-                    ColumnDefinitions="Auto, *"
-                    ColumnSpacing="10"
-                    RowDefinitions="Auto">
-                    <controls1:CheckBox
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        IsChecked="{Binding IsTermsChecked}" />
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        MaxLines="3"
-                        Text="By continuing you accept our Privacy Policy  and Term of Use"
-                        VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TermsClickedCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
-                </Grid>
+                    Icon="{FontImageSource FontFamily=MaterialRegular,
+                    
+                                           Glyph={x:Static m:MaterialRegular.Monitor_weight}}" />
+                <controls1:TextField
+                    Title="Your Height"
+                    Grid.Row="5"
+                    Icon="{FontImageSource FontFamily=MaterialRegular,
+                                           Glyph={x:Static m:MaterialRegular.Height}}" />
+
+                <Button
+                    Grid.Row="6"
+                    Command="{Binding ChangeStateCommand}"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="50"
+                    StyleClass="ElevatedButton"
+                    Text="Next"
+                    VerticalOptions="End" />
             </Grid>
-
-        </VerticalStackLayout>
-        <VerticalStackLayout
-            Grid.Row="1"
-            Margin="0,25"
-            Spacing="15"
-            VerticalOptions="End">
-            <Button
-                FontAttributes="Bold"
-                FontSize="18"
-                HeightRequest="50"
-                StyleClass="ElevatedButton"
-                Text="Register"
-                VerticalOptions="End" />
-
-            <Grid ColumnDefinitions="*, Auto, *" ColumnSpacing="10">
-                <BoxView
-                    Grid.Column="0"
-                    HeightRequest="1"
-                    Color="{StaticResource OnBackground}" />
-                <Label
-                    Grid.Column="1"
-                    Text="Or"
-                    TextColor="Black" />
-                <BoxView
-                    Grid.Column="2"
-                    HeightRequest="1"
-                    Color="{StaticResource OnBackground}" />
-            </Grid>
-
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="35">
-                <Border
-                    HorizontalOptions="Center"
-                    StrokeShape="RoundRectangle 15,15,15,15"
-                    StrokeThickness="1">
-                    <Image
-                        Margin="15"
-                        Aspect="AspectFill"
-                        HeightRequest="25"
-                        Source="google_logo.png"
-                        WidthRequest="25" />
-                </Border>
-                <Border
-                    HorizontalOptions="Center"
-                    StrokeShape="RoundRectangle 15,15,15,15"
-                    StrokeThickness="1">
-                    <Image
-                        Margin="15"
-                        Aspect="AspectFill"
-                        HeightRequest="25"
-                        Source="facebook_logo.png"
-                        WidthRequest="25" />
-                </Border>
-            </HorizontalStackLayout>
-
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="3">
-                <Label FontSize="14" Text="Already have an account?" />
-                <Label FontSize="14" Text="Login" />
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
-    </Grid>
+        </toolkit:StateContainer.StateViews>
+    </VerticalStackLayout>
 </ContentPage>
