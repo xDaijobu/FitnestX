@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FitnestX.Models;
 
 namespace FitnestX.ViewModels;
 
@@ -14,7 +16,32 @@ public partial class SignUpViewModel
     private bool canStateChange;
 
     [ObservableProperty] 
-    private string currentState = States.SignUpStepTwo;
+    private string currentState = States.SignUpStepOne;
+
+    [ObservableProperty]
+    private ObservableCollection<string> genders;
+
+    [ObservableProperty]
+    private string selectedGender;
+
+    [ObservableProperty]
+    private ObservableCollection<GoalModel> goals;
+
+    public SignUpViewModel()
+    {
+        Genders = new ObservableCollection<string>()
+        {
+            "Male",
+            "Female",
+        };
+
+        Goals = new ObservableCollection<GoalModel>()
+        {
+            new("Improve Shape", "I have a low amount of body fat and need / want to build more muscle", "first_goal.png"),
+            new("Lean & Tone", "I’m “skinny fat”. look thin but have no shape. I want to add learn muscle in the right way", "second_goal.png"),
+            new("Lose a Fat", "I have over 20 lbs to lose. I want to drop all this fat and gain muscle mass", "third_goal.png"),
+        };
+    }
 
     [RelayCommand]
     private void TermsClicked()
@@ -22,23 +49,27 @@ public partial class SignUpViewModel
         IsTermsChecked = !IsTermsChecked;
     }
 
-    [RelayCommand(CanExecute = nameof(CanStateChange))]
-    private void ChangeState()
+    [RelayCommand]//(CanExecute = nameof(CanStateChange))]
+    private void RegisterClicked()
     {
         CurrentState = States.SignUpStepTwo;
     }
 
-    partial void OnCanStateChangeChanged(bool value)
+    [RelayCommand]//(CanExecute = nameof(CanStateChange))]
+    private void NextClicked()
     {
-        ChangeStateCommand.NotifyCanExecuteChanged();
+        CurrentState = States.Goals;
     }
+
+    //partial void OnCanStateChangeChanged(bool value)
+    //{
+    //    ChangeStateCommand.NotifyCanExecuteChanged();
+    //}
 }
 
 static class States
 {
     public const string SignUpStepOne = nameof(SignUpStepOne);
     public const string SignUpStepTwo = nameof(SignUpStepTwo);
-    public const string GoalStepOne = nameof(GoalStepOne);
-    public const string GoalStepTwo = nameof(GoalStepTwo);
-    public const string GoalStepThree = nameof(GoalStepThree);
+    public const string Goals = nameof(Goals);
 }

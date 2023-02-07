@@ -1,7 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace FitnestX.Models;
 
-namespace FitnestX.Models;
+public class GoalModel
+{
+    public string Title { get; set; }
+    public string Description { get; set; }
+    public string Image { get; set; }
+
+    public GoalModel(string title, string description, string image)
+    {
+        Title = title;
+        Description = description;
+        Image = image;
+    }
+}

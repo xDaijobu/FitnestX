@@ -93,7 +93,7 @@
                     Spacing="15"
                     VerticalOptions="End">
                     <Button
-                        Command="{Binding ChangeStateCommand}"
+                        Command="{Binding RegisterClickedCommand}"
                         FontAttributes="Bold"
                         FontSize="18"
                         HeightRequest="50"
@@ -175,38 +175,81 @@
                         VerticalOptions="Center" />
                 </VerticalStackLayout>
 
-                <controls1:TextField
+                <controls1:PickerField
                     Title="Choose Gender"
                     Grid.Row="2"
                     Icon="{FontImageSource FontFamily=MaterialRegular,
-                                           Glyph={x:Static m:MaterialRegular.Person}}" />
+                                           Glyph={x:Static m:MaterialRegular.Person}}"
+                    ItemsSource="{Binding Genders}"
+                    SelectedItem="{Binding SelectedGender}" />
                 <controls1:TextField
                     Title="Date of birth"
                     Grid.Row="3"
                     Icon="{FontImageSource FontFamily=MaterialRegular,
                                            Glyph={x:Static m:MaterialRegular.Date_range}}" />
 
-                <controls1:TextField
-                    Title="Your Weight"
+                <Grid
                     Grid.Row="4"
-                    Icon="{FontImageSource FontFamily=MaterialRegular,
-                    
-                                           Glyph={x:Static m:MaterialRegular.Monitor_weight}}" />
-                <controls1:TextField
-                    Title="Your Height"
+                    ColumnDefinitions="8.5*, 1.5*"
+                    ColumnSpacing="10">
+                    <controls1:TextField
+                        Title="Your Weight"
+                        Grid.Column="0"
+                        Icon="{FontImageSource FontFamily=MaterialRegular,
+                                               Glyph={x:Static m:MaterialRegular.Monitor_weight}}"
+                        Keyboard="Numeric" />
+                    <Border
+                        Grid.Column="1"
+                        Background="{StaticResource PurpleLinear}"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="KG"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </Border>
+                </Grid>
+
+                <Grid
                     Grid.Row="5"
-                    Icon="{FontImageSource FontFamily=MaterialRegular,
-                                           Glyph={x:Static m:MaterialRegular.Height}}" />
+                    ColumnDefinitions="8.5*, 1.5*"
+                    ColumnSpacing="10">
+                    <controls1:TextField
+                        Title="Your Height"
+                        Grid.Column="0"
+                        Icon="{FontImageSource FontFamily=MaterialRegular,
+                                               Glyph={x:Static m:MaterialRegular.Height}}"
+                        Keyboard="Numeric" />
+                    <Border
+                        Grid.Column="1"
+                        Background="{StaticResource PurpleLinear}"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="1">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="CM"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </Border>
+                </Grid>
+
 
                 <Button
                     Grid.Row="6"
-                    Command="{Binding ChangeStateCommand}"
+                    Margin="0,15,0,0"
+                    Command="{Binding NextClickedCommand}"
                     FontAttributes="Bold"
                     FontSize="18"
                     HeightRequest="50"
                     StyleClass="ElevatedButton"
                     Text="Next"
                     VerticalOptions="End" />
+            </Grid>
+
+            <!--  Goals  -->
+            <Grid toolkit:StateView.StateKey="Goals">
+                <Label Text="Hello World" />
             </Grid>
         </toolkit:StateContainer.StateViews>
     </VerticalStackLayout>

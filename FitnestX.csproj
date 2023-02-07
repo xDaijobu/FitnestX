@@ -51,10 +51,13 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\eat_well.svg" />
 	  <None Remove="Resources\Images\facebook_logo.svg" />
+	  <None Remove="Resources\Images\first_goal.svg" />
 	  <None Remove="Resources\Images\get_burn.svg" />
 	  <None Remove="Resources\Images\girl_one.svg" />
 	  <None Remove="Resources\Images\google_logo.svg" />
 	  <None Remove="Resources\Images\improve_sleep_quality.svg" />
+	  <None Remove="Resources\Images\second_goal.svg" />
+	  <None Remove="Resources\Images\third_goal.svg" />
 	  <None Remove="Resources\Images\track_your_goal.svg" />
 	</ItemGroup>
 
