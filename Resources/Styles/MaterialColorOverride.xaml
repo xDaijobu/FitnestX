@@ -94,7 +94,10 @@
         <GradientStop Offset="0.1" Color="#EEA4CE" />
         <GradientStop Offset="1" Color="#C58BF2" />
     </LinearGradientBrush>
-
+    <LinearGradientBrush x:Key="BlueLinear" EndPoint="1,0">
+        <GradientStop Offset="0.1" Color="#92A3FD" />
+        <GradientStop Offset="1" Color="#9DCEFF" />
+    </LinearGradientBrush>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{DynamicResource Primary}" />
     <SolidColorBrush x:Key="PrimaryContainerBrush" Color="{StaticResource PrimaryContainer}" />

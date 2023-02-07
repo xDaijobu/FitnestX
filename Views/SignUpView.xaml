@@ -248,8 +248,99 @@
             </Grid>
 
             <!--  Goals  -->
-            <Grid toolkit:StateView.StateKey="Goals">
-                <Label Text="Hello World" />
+            <Grid toolkit:StateView.StateKey="Goals" RowDefinitions="Auto, Auto, Auto">
+                <VerticalStackLayout
+                    Grid.Row="0"
+                    Margin="10"
+                    HorizontalOptions="Center"
+                    Spacing="10">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        HorizontalTextAlignment="Center"
+                        Text="What is your goal ?"
+                        TextColor="Black" />
+                    <Label
+                        Margin="45,0"
+                        FontSize="14"
+                        HorizontalTextAlignment="Center"
+                        Text="It will help us to choose a best program for you"
+                        TextColor="{StaticResource Gray}" />
+                </VerticalStackLayout>
+                <CarouselView
+                    Grid.Row="1"
+                    Margin="0,25"
+                    ItemsSource="{Binding Goals}"
+                    PeekAreaInsets="60">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout
+                            ItemSpacing="20"
+                            Orientation="Horizontal"
+                            SnapPointsAlignment="Center"
+                            SnapPointsType="MandatorySingle" />
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                Background="{StaticResource BlueLinear}"
+                                StrokeShape="RoundRectangle 10"
+                                StrokeThickness="1">
+                                <Grid Margin="25" RowDefinitions="Auto, Auto, Auto">
+                                    <Image
+                                        Grid.Row="0"
+                                        Aspect="AspectFill"
+                                        Source="{Binding Image}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Title}" />
+                                    <Label
+                                        Grid.Row="2"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Description}" />
+                                </Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="CurrentItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Margin" Value="0" />
+                                                <Setter Property="Rotation" Value="0" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="PreviousItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Margin" Value="15,60" />
+                                                <Setter Property="Opacity" Value="0.35" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="NextItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Margin" Value="15,60" />
+                                                <Setter Property="Opacity" Value="0.35" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="DefaultItem">
+                                            <VisualState.Setters>
+                                                <Setter Property="Margin" Value="15,60" />
+                                                <Setter Property="Opacity" Value="0.25" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Border>
+
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <Button
+                    Grid.Row="2"
+                    Margin="0,15,0,0"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="50"
+                    StyleClass="ElevatedButton"
+                    Text="Confirm"
+                    VerticalOptions="End" />
             </Grid>
         </toolkit:StateContainer.StateViews>
     </VerticalStackLayout>
