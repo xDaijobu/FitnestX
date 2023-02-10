@@ -64,7 +64,7 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="4.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
-		<PackageReference Include="LocalNotifications" Version="2.0.5.1" />
+		<!--<PackageReference Include="LocalNotifications" Version="2.0.5.1" />-->
 		<PackageReference Include="Syncfusion.Licensing" Version="20.4.0.44" />
 		<PackageReference Include="Syncfusion.Maui.ProgressBar" Version="20.4.44" />
 		<PackageReference Include="UraniumUI.Material" Version="2.3.0" />

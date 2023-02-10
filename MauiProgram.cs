@@ -2,7 +2,7 @@
 using Mopups.Hosting;
 using InputKit.Shared.Controls;
 using UraniumUI;
-using LocalNotifications;
+//using LocalNotifications;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace FitnestX;
@@ -18,9 +18,9 @@ public static class MauiProgram
             .UseUraniumUI()
 			.UseUraniumUIMaterial()
             .ConfigureSyncfusionCore()
-#if ANDROID || IOS
-            .UseLocalNotifications(false, false)
-#endif
+//#if ANDROID || IOS
+//            .UseLocalNotifications(false, false)
+//#endif
 			.UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
