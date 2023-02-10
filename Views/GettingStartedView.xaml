@@ -15,18 +15,22 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span
+                            FontFamily="PoppinsBold"
                             FontSize="36"
                             Text="Fitnest"
                             TextColor="Black" />
                         <Span
+                            FontFamily="PoppinsBold"
                             FontSize="48"
                             Text="X"
-                            TextColor="{StaticResource OnPrimary}" />
+                            TextColor="#B8ABF5" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
             <Label
-                FontSize="20"
+                Margin="55,0"
+                FontFamily="PoppinsRegular"
+                FontSize="18"
                 HorizontalTextAlignment="Center"
                 Text="Everybody Can Train"
                 TextColor="{StaticResource Gray}" />
@@ -34,7 +38,7 @@
 
         <Button
             Command="{Binding GoToOnBoardingViewCommand}"
-            FontAttributes="Bold"
+            FontFamily="PoppinsRegular"
             FontSize="18"
             HeightRequest="50"
             StyleClass="ElevatedButton"

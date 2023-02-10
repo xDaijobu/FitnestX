@@ -10,7 +10,20 @@ namespace FitnestX;
 public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
-	{
+    {
+        List<(string, string)> poppinsFonts = new List<(string, string)>()
+        {
+			("Poppins-Bold.ttf", "PoppinsBold"),
+			("Poppins-BoldItalic.ttf", "PoppinsBoldItalic"),
+			("Poppins-Italic.ttf", "PoppinsItalic"),
+			("Poppins-Light.ttf", "PoppinsLight"),
+			("Poppins-LightItalic.ttf", "PoppinsLightItalic"),
+			("Poppins-Medium.ttf", "PoppinsMedium"),
+			("Poppins-MediumItalic.ttf", "PoppinsMediumItalic"),
+			("Poppins-Regular.ttf", "PoppinsRegular"),
+			("Poppins-SemiBold.ttf", "PoppinsSemiBold"),
+			("Poppins-SemiBoldItalic.ttf", "PoppinsSemiBoldItalic"),
+        };
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
@@ -26,6 +39,9 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+
+				foreach(var font in poppinsFonts)
+					fonts.AddFont(font.Item1, font.Item2);
 
 				fonts.AddMaterialIconFonts();
             });

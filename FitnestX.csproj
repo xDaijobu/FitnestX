@@ -49,6 +49,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Poppins-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-BoldItalic.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-Italic.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-Light.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-LightItalic.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-Medium.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-MediumItalic.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
+	  <None Remove="Resources\Fonts\Poppins-SemiBoldItalic.ttf" />
 	  <None Remove="Resources\Images\eat_well.svg" />
 	  <None Remove="Resources\Images\facebook_logo.svg" />
 	  <None Remove="Resources\Images\first_goal.svg" />

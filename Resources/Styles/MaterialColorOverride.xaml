@@ -99,6 +99,11 @@
         <GradientStop Offset="1" Color="#9DCEFF" />
     </LinearGradientBrush>
 
+    <LinearGradientBrush x:Key="LogoLinear" EndPoint="1,0">
+        <GradientStop Offset="0.1" Color="#CC8FED" />
+        <GradientStop Offset="1" Color="#9DCEFF" />
+    </LinearGradientBrush>
+
     <SolidColorBrush x:Key="PrimaryBrush" Color="{DynamicResource Primary}" />
     <SolidColorBrush x:Key="PrimaryContainerBrush" Color="{StaticResource PrimaryContainer}" />
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
