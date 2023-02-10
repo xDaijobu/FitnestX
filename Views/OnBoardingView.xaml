@@ -4,7 +4,6 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:attachment="clr-namespace:UraniumUI.Material.Attachments;assembly=UraniumUI.Material"
-    xmlns:controls="clr-namespace:FitnestX.Controls"
     xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
     xmlns:local="clr-namespace:FitnestX.Views"
     xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
@@ -17,71 +16,74 @@
         <viewModels:OnBoardingViewModel />
     </ContentPage.BindingContext>
 
-    <CarouselView
-        IsSwipeEnabled="False"
-        ItemsSource="{Binding OnBoardings}"
-        Position="{Binding Position}">
-        <CarouselView.ItemTemplate>
-            <DataTemplate>
-                <Grid RowDefinitions="500, Auto, *">
-                    <Image
-                        Grid.Row="0"
-                        Aspect="AspectFill"
-                        Source="{Binding Image}" />
-                    <VerticalStackLayout
-                        Grid.Row="1"
-                        Margin="30"
-                        Spacing="10"
-                        VerticalOptions="Center">
-                        <Label
-                            FontAttributes="Bold"
-                            FontSize="24"
-                            Text="{Binding Title}" />
-                        <Label
-                            FontSize="14"
-                            Text="{Binding Description}"
-                            TextColor="{StaticResource Gray}" />
-                    </VerticalStackLayout>
-
-                    <Grid
-                        Grid.Row="2"
-                        Margin="5"
-                        ColumnDefinitions="Auto"
-                        HorizontalOptions="End"
-                        RowDefinitions="Auto"
-                        VerticalOptions="End">
-
-                        <progressBar:SfCircularProgressBar
-                            HeightRequest="70"
-                            Maximum="100"
-                            Minimum="0"
-                            Progress="{Binding Value}"
-                            ProgressThickness="3"
-                            ThicknessUnit="Pixel"
-                            TrackThickness="2"
-                            WidthRequest="70">
-                            <progressBar:SfCircularProgressBar.GradientStops>
-                                <progressBar:ProgressGradientStop Color="{StaticResource OnPrimary}" Value="0" />
-                                <progressBar:ProgressGradientStop Color="{StaticResource Primary}" Value="100" />
-                            </progressBar:SfCircularProgressBar.GradientStops>
-                        </progressBar:SfCircularProgressBar>
-                        <material:ButtonView
-                            HeightRequest="50"
-                            TappedCommand="{Binding BindingContext.UpdatePositionCommand, Source={x:Reference myPage}}"
-                            WidthRequest="50">
+    <Grid>
+        <CarouselView
+            IsSwipeEnabled="False"
+            ItemsSource="{Binding OnBoardings}"
+            Position="{Binding Position}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="500, Auto, *">
+                        <Image
+                            Grid.Row="0"
+                            Aspect="AspectFill"
+                            Source="{Binding Image}" />
+                        <VerticalStackLayout
+                            Grid.Row="1"
+                            Margin="30"
+                            Spacing="10"
+                            VerticalOptions="Center">
                             <Label
                                 FontAttributes="Bold"
-                                HorizontalTextAlignment="Center"
-                                Text="&gt;"
-                                TextColor="White"
-                                VerticalTextAlignment="Center" />
-                        </material:ButtonView>
+                                FontSize="24"
+                                Text="{Binding Title}" />
+                            <Label
+                                FontSize="14"
+                                Text="{Binding Description}"
+                                TextColor="{StaticResource Gray}" />
+                        </VerticalStackLayout>
+
+
+
 
                     </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
 
+        <Grid
+            Margin="5"
+            ColumnDefinitions="Auto"
+            HorizontalOptions="End"
+            RowDefinitions="Auto"
+            VerticalOptions="End">
 
-                </Grid>
-            </DataTemplate>
-        </CarouselView.ItemTemplate>
-    </CarouselView>
+            <progressBar:SfCircularProgressBar
+                HeightRequest="70"
+                Maximum="100"
+                Minimum="0"
+                Progress="{Binding CurrentValue}"
+                ProgressThickness="3"
+                ThicknessUnit="Pixel"
+                TrackThickness="2"
+                WidthRequest="70">
+                <progressBar:SfCircularProgressBar.GradientStops>
+                    <progressBar:ProgressGradientStop Color="{StaticResource Primary}" Value="0" />
+                    <progressBar:ProgressGradientStop Color="{StaticResource OnPrimary}" Value="100" />
+                </progressBar:SfCircularProgressBar.GradientStops>
+            </progressBar:SfCircularProgressBar>
+            <material:ButtonView
+                HeightRequest="50"
+                TappedCommand="{Binding UpdatePositionCommand}"
+                WidthRequest="50">
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"
+                    Text="&gt;"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+            </material:ButtonView>
+
+        </Grid>
+    </Grid>
 </ContentPage>

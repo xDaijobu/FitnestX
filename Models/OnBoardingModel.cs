@@ -10,14 +10,12 @@ namespace FitnestX.Models
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public int Value { get; set; }
         public string Image { get; set; }
 
-        public OnBoardingModel(string title, string description, int value, string image)
+        public OnBoardingModel(string title, string description, string image)
         {
             Title = title;
             Description = description;
-            Value = value;
             Image = image;
         }
     }
