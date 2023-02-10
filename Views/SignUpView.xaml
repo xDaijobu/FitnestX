@@ -17,7 +17,7 @@
     </ContentPage.BindingContext>
     <VerticalStackLayout toolkit:StateContainer.CanStateChange="{Binding CanStateChange}" toolkit:StateContainer.CurrentState="{Binding CurrentState}">
         <toolkit:StateContainer.StateViews>
-            <!--  SignUpStepOne  -->
+            <!--#region SignUpStepOne-->
             <Grid
                 Margin="25"
                 toolkit:StateView.StateKey="SignUpStepOne"
@@ -147,8 +147,9 @@
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </Grid>
+            <!--#endregion-->
 
-            <!--  SignUpStepTwo  -->
+            <!--#region SignUpStepTwo-->
             <Grid
                 Margin="25"
                 toolkit:StateView.StateKey="SignUpStepTwo"
@@ -246,8 +247,9 @@
                     Text="Next"
                     VerticalOptions="End" />
             </Grid>
+            <!--#endregion-->
 
-            <!--  Goals  -->
+            <!--#region  Goals-->
             <Grid toolkit:StateView.StateKey="Goals" RowDefinitions="Auto, Auto, Auto">
                 <VerticalStackLayout
                     Grid.Row="0"
@@ -342,6 +344,7 @@
                     Text="Confirm"
                     VerticalOptions="End" />
             </Grid>
+            <!--#endregion-->
         </toolkit:StateContainer.StateViews>
     </VerticalStackLayout>
 </ContentPage>
